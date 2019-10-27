@@ -20,7 +20,7 @@ public class NseWeeklyPage
 	
 	public static void main(String args[]) throws IOException, InterruptedException
 	{
-		String CE_oi,CE_choi,CE_vol,CE_iv,CE_ltp,PE_ltp,PE_iv,PE_vol,PE_choi,PE_oi,livePrice,strikeData;
+		String CE_oi,CE_choi,CE_vol,CE_iv,CE_ltp,PE_ltp,PE_iv,PE_vol,PE_choi,PE_oi,livePrice,strikeData = null;
 		
 	
 	System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
@@ -52,6 +52,7 @@ public class NseWeeklyPage
 	strikePrices.add("11600.00");
 	strikePrices.add("11700.00");
 	List<String> optionData = new ArrayList<String>();
+	//Map<String,String> optionData =new Map<>
 	for(String s:strikePrices)
 	{
 		//System.out.println(s);
@@ -101,14 +102,17 @@ optionData.add(PE_choi);
 optionData.add(PE_oi);
 optionData.add(livePrice);
 
-for(String b:optionData) {
-	System.out.println(b);
-	
-}
+//for(String b:optionData) {
+//	System.out.println(b);
+//	
+//}
 System.out.println("------------------End of strike-----------------");
+//System.out.println(strikeData);
 WeeklyNiftyExcel.writeToExcel(optionData,strikeData);
 optionData.clear();
+
 	}
+	
 	
 }
 	
